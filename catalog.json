@@ -1,0 +1,24 @@
+[
+  {
+    "id": "coffee",
+    "name": "Coffee voucher",
+    "description": "A demo voucher fulfilled by the merchant after payment.",
+    "amount": "5.00",
+    "fiatCurrency": "USD"
+  },
+  {
+    "id": "sticker-pack",
+    "name": "Digital sticker pack",
+    "description": "A sample digital item fulfilled by the merchant after payment.",
+    "amount": "12.00",
+    "fiatCurrency": "USD"
+  },
+  {
+    "id": "supporter",
+    "name": "Supporter package",
+    "description": "A sample supporter package fulfilled by the merchant after payment.",
+    "amount": "49.00",
+    "fiatCurrency": "USD"
+  }
+]
+

@@ -1,0 +1,89 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "makepay-telegram-bot"
+version = "1.0.0"
+description = "Production-minded Telegram shop bot starter for accepting cryptocurrency with MakePay"
+readme = "README.md"
+requires-python = ">=3.12"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "MakePay", email = "support@makepay.io" }]
+keywords = [
+  "makepay",
+  "telegram",
+  "telegram-bot",
+  "crypto-payments",
+  "payment-links",
+]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Framework :: FastAPI",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Office/Business :: Financial",
+]
+dependencies = [
+  "fastapi==0.140.0",
+  "httpx==0.28.1",
+  "makepay==0.3.0",
+  "python-telegram-bot==22.8",
+  "uvicorn[standard]==0.51.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "mypy==2.3.0",
+  "pip-audit==2.10.1",
+  "pytest==9.1.1",
+  "pytest-cov==7.1.0",
+  "ruff==0.16.0",
+]
+
+[project.scripts]
+makepay-telegram-bot = "makepay_telegram_bot.cli:main"
+
+[project.urls]
+Documentation = "https://github.com/makepay-io/makepay-telegram-bot#readme"
+Issues = "https://github.com/makepay-io/makepay-telegram-bot/issues"
+Repository = "https://github.com/makepay-io/makepay-telegram-bot"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/makepay_telegram_bot"]
+
+[tool.pytest.ini_options]
+addopts = "--strict-config --strict-markers"
+testpaths = ["tests"]
+
+[tool.coverage.run]
+branch = true
+source = ["makepay_telegram_bot"]
+omit = [
+  "src/makepay_telegram_bot/__main__.py",
+  "src/makepay_telegram_bot/cli.py",
+]
+
+[tool.coverage.report]
+fail_under = 85
+show_missing = true
+skip_covered = true
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "ASYNC", "S", "RUF"]
+ignore = ["S101"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["S105", "S106"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+warn_unreachable = true
+packages = ["makepay_telegram_bot"]

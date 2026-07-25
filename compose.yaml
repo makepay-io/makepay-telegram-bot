@@ -1,0 +1,14 @@
+services:
+  bot:
+    build: .
+    env_file: .env
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      - bot-data:/app/data
+      - ./catalog.json:/app/catalog.json:ro
+
+volumes:
+  bot-data:
+

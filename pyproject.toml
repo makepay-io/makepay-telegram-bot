@@ -27,11 +27,11 @@ classifiers = [
   "Topic :: Office/Business :: Financial",
 ]
 dependencies = [
-  "fastapi==0.140.0",
+  "fastapi==0.141.1",
   "httpx==0.28.1",
   "makepay==0.3.0",
   "python-telegram-bot==22.8",
-  "uvicorn[standard]==0.51.0",
+  "uvicorn[standard]==0.52.1",
 ]
 
 [project.optional-dependencies]
@@ -40,7 +40,7 @@ dev = [
   "pip-audit==2.10.1",
   "pytest==9.1.1",
   "pytest-cov==7.1.0",
-  "ruff==0.16.0",
+  "ruff==0.16.1",
 ]
 
 [project.scripts]
